@@ -1,8 +1,12 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+const MONGO_URI = process.env.MONGO_URI;
 
+  console.log(process.env); // Use environment variable or fallback to default
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/Weather", {
+    await mongoose.connect(MONGO_URI, { // Use the MONGO_URI variable
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

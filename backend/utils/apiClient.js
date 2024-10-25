@@ -1,12 +1,10 @@
 import axios from "axios";
 import dotenv from "dotenv";
-
-// Load environment variables from one folder up
-dotenv.config({ path: "../.env" });
+dotenv.config();
+const API_KEY = process.env.API_KEY;
 
 async function fetchWeatherData(city) {
-  console.log("6a751c7af4eaa511143eb729be6a4589");
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6a751c7af4eaa511143eb729be6a4589`;
+  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
   const { data } = await axios.get(url);
   return {
     city: city,
